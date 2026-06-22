@@ -1,5 +1,6 @@
 {% assign default_thumb_image = 'images/demo/product-demo.jpg' | asset_url %}
 {% assign product_categories = site.settings.product_categories | split: '|' %}
+{% assign product_categories_size = product_categories | size %}
 
 {% assign active_tag_name = '' %}
 {% if tag %}
@@ -48,38 +49,41 @@
 {% endif %}
 
 <!-- Product list -->
-<section class="max-w-6xl mx-auto">
-  <div class="flex justify-center gap-4 w-full overflow-x-auto">
-    <a
-      href="{{ all_products_url }}"
-      class="flex-none px-4 py-1 text-sm font-medium border rounded-lg focus:outline-none {% if show_all_products %}bg-primary text-white border-primary{% else %}border-gray-300{% endif %}"
-    >{{ 'generic.all' | t }}</a>
-    {% for item in product_categories %}
-      {% assign category_name = item | strip %}
-      {% if category_name != blank %}
-        <a
-          href="/-/tags/{{ category_name }}"
-          class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-lg focus:outline-none {% unless show_all_products %}{% if category_name == active_tag_name %}bg-primary text-white border-primary{% endif %}{% endunless %}"
-        >{{ category_name }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
 
-  {% paginate_tag tag_pages, per: 32 %}
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:grid-cols-2 mt-4">
-      {% for item in tag_pages %}
-        {% if item.template_name == 'product' %}
-          <a href="{{ item.path }}" class="overflow-hidden p-2 max-w-64 flex flex-col">
-            <div class="p-2 md:p-4 bg-white"><img src="{{ item.settings.thumb_image_url | default: default_thumb_image }}" alt="{{ item.link_text }}" class="w-full object-cover"></div>
-            <div class="mt-1">
-              <p class="text-md text-center base-content">{{ item.link_text }}</p>
-            </div>
-          </a>
+  <section class="max-w-6xl mx-auto">
+    <div class="flex justify-center gap-4 w-full overflow-x-auto mt-4">
+      {% if product_categories_size > 0 %}
+        <a
+          href="{{ all_products_url }}"
+          class="flex-none px-4 py-1 text-sm font-medium border rounded-lg focus:outline-none {% if show_all_products %}bg-primary text-white border-primary{% else %}border-gray-300{% endif %}"
+        >{{ 'generic.all' | t }}</a>
+      {% endif %}
+      {% for item in product_categories %}
+        {% assign category_name = item | strip %}
+        {% if category_name != blank %}
+          <a
+            href="/-/tags/{{ category_name }}"
+            class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-lg focus:outline-none {% unless show_all_products %}{% if category_name == active_tag_name %}bg-primary text-white border-primary{% endif %}{% endunless %}"
+          >{{ category_name }}</a>
         {% endif %}
       {% endfor %}
     </div>
-    <div class="w-full text-right block">
-      {% render 'paginate', paginate: paginate %}
-    </div>
-  {% endpaginate_tag %}
-</section>
+
+    {% paginate_tag tag_pages, per: 32 %}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:grid-cols-2 mt-4">
+        {% for item in tag_pages %}
+          {% if item.template_name == 'product' %}
+            <a href="{{ item.path }}" class="overflow-hidden p-2 max-w-64 flex flex-col">
+              <div class=" bg-base-200"><img src="{{ item.settings.thumb_image_url | default: default_thumb_image }}" alt="{{ item.link_text }}" class="w-full aspect-[4/3] object-cover"></div>
+              <div class="mt-1">
+                <p class="text-md text-center base-content line-clamp-2">{{ item.link_text }}</p>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="w-full text-right block">
+        {% render 'paginate', paginate: paginate %}
+      </div>
+    {% endpaginate_tag %}
+  </section>

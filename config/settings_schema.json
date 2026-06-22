@@ -278,6 +278,12 @@
         "default": "Browse by FAQs"
       },
       {
+        "id": "section_faqs_description",
+        "type": "text",
+        "label": "t:schema.settings_schema.home_faqs.settings.section_faqs_description.label",
+        "default": "Frequently asked questions about our products and services."
+      },
+      {
         "id": "section_faqs_menu",
         "type": "textarea",
         "label": "t:schema.settings_schema.home_faqs.settings.section_faqs_menu.label",
@@ -311,6 +317,12 @@
         "default": "Browse by Product"
       },
       {
+        "id": "section_products_description",
+        "type": "text",
+        "label": "t:schema.settings_schema.home_products.settings.section_products_description.label",
+        "default": "Browse our range of high-quality products."
+      },
+      {
         "id": "product_categories",
         "type": "text",
         "label": "t:schema.settings_schema.home_products.settings.product_categories.label",
@@ -334,6 +346,12 @@
         "type": "text",
         "label": "t:schema.settings_schema.home_topics.settings.section_topic_title.label",
         "default": "Browse by Topic"
+      },
+      {
+        "id": "section_topics_description",
+        "type": "text",
+        "label": "t:schema.settings_schema.home_topics.settings.section_topics_description.label",
+        "default": "Find help by exploring different topics."
       },
       {
         "id": "topics_menu",

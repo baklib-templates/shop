@@ -70,6 +70,9 @@
         "section_faqs_title": {
           "label": "版块标题"
         },
+        "section_faqs_description": {
+          "label": "版块描述"
+        },
         "section_faqs_menu": {
           "label": "FAQs 导航配置",
           "info": "格式：name[slug{description，每行一个栏目。"
@@ -90,6 +93,9 @@
         "section_product_title": {
           "label": "版块标题"
         },
+        "section_products_description": {
+          "label": "版块描述"
+        },
         "product_categories": {
           "label": "产品大类设置",
           "info": "格式：电子产品|医疗器械|工业设备；同时在「标签管理」中添加对应标签。"
@@ -105,6 +111,9 @@
         },
         "section_topic_title": {
           "label": "版块标题"
+        },
+        "section_topics_description": {
+          "label": "版块描述"
         },
         "topics_menu": {
           "label": "首页话题导航配置",
@@ -299,6 +308,10 @@
         },
         "tags": {
           "label": "标签"
+        },
+        "external_title": {
+          "label": "外部链接标题",
+          "info": "外部链接按钮的显示文本（例如：立即购买、联系我们）。"
         },
         "external_url": {
           "label": "外部链接（了解更多）",

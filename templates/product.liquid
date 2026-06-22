@@ -27,7 +27,7 @@
         <div class="">
           {% if page.settings.external_url %}
             <div class="flex items-center justify-end">
-              <a href="{{ page.settings.external_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="text-primary-content bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Shop Now</a>
+              <a href="{{ page.settings.external_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="text-primary-content bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">{{ page.settings.external_title | default: 'Shop Now' }}</a>
             </div>
           {% endif %}
         </div>
@@ -124,12 +124,20 @@
         "label": "t:schema.templates.product.settings.tags.label"
       },
       {
-          "id": "external_url",
-          "type": "text",
-          "placeholder": "https://",
-          "default": "#",
-          "label": "t:schema.templates.product.settings.external_url.label",
-          "info": "t:schema.templates.product.settings.external_url.info"
+        "id": "external_title",
+        "type": "text",
+        "placeholder": "Contact US",
+        "default": "Contact US",
+        "label": "t:schema.templates.product.settings.external_title.label",
+        "info": "t:schema.templates.product.settings.external_title.info"
+      },
+      {
+        "id": "external_url",
+        "type": "text",
+        "placeholder": "https://",
+        "default": "#",
+        "label": "t:schema.templates.product.settings.external_url.label",
+        "info": "t:schema.templates.product.settings.external_url.info"
       }
     ]
   }

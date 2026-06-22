@@ -70,6 +70,9 @@
         "section_faqs_title": {
           "label": "Section title"
         },
+        "section_faqs_description": {
+          "label": "Section description"
+        },
         "section_faqs_menu": {
           "label": "FAQs navigation",
           "info": "Format: name[slug{description — one column per line."
@@ -90,6 +93,9 @@
         "section_product_title": {
           "label": "Section title"
         },
+        "section_products_description": {
+          "label": "Section description"
+        },
         "product_categories": {
           "label": "Product categories",
           "info": "Format: Category A|Category B|Category C. Add matching tags in Tag management."
@@ -105,6 +111,9 @@
         },
         "section_topic_title": {
           "label": "Section title"
+        },
+        "section_topics_description": {
+          "label": "Section description"
         },
         "topics_menu": {
           "label": "Homepage topics navigation",
@@ -299,6 +308,10 @@
         },
         "tags": {
           "label": "Tags"
+        },
+        "external_title": {
+          "label": "External link title",
+          "info": "Display name/label for the external link button (e.g., Shop Now, Contact US)."
         },
         "external_url": {
           "label": "External link (Learn more)",
