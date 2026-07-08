@@ -30,7 +30,9 @@
     "recommend_pages": "Recommend articles",
     "channel_pages": "Channel Navigation",
     "recent_pages": "Articles récents",
-    "tags": "Mots clés"
+    "tags": "Mots clés",
+    "signin": "Se connecter",
+    "signout": "Se déconnecter"
   },
   "placeholders": {
     "search": "Recherche..",
@@ -48,6 +50,11 @@
   "feedback": {
     "title": "Soumettre des commentaires",
     "input_placeholder": "Veuillez saisir vos commentaires"
+  },
+  "snippets": {
+    "header": {
+      "profile": "Profil"
+    }
   },
   "templates": {
     "search": {

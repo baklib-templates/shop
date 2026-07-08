@@ -32,7 +32,9 @@
     "channel_pages": "栏目导览",
     "recent_pages": "最近文章",
     "visits": "访问量",
-    "tags": "快捷标签"
+    "tags": "快捷标签",
+    "signin": "登录",
+    "signout": "退出"
   },
   "placeholders": {
     "search": "AI 智能搜索",
@@ -50,6 +52,11 @@
   "feedback": {
     "title": "提交反馈",
     "input_placeholder": "请输入反馈内容"
+  },
+  "snippets": {
+    "header": {
+      "profile": "个人资料"
+    }
   },
   "templates": {
     "search": {

@@ -162,31 +162,83 @@ site.settings.header_menu 格式如下：
     </div>
 
     <!-- Search -->
-    <div class="hidden relative sm:flex items-center">
-      {% assign header_search_form_class = 'header-ai-search' %}
-      {% if search.keywords != blank %}
-        {% assign header_search_form_class = header_search_form_class | append: ' header-ai-search--expanded' %}
-      {% endif %}
-      {% form_tag 'search', class: header_search_form_class %}
-        <label for="header-ai-search" class="sr-only">{{ 'generic.search' | t }}</label>
-        <span class="header-ai-search__icon header-ai-search__icon--ai start-2.5" aria-hidden="true">
-          <i data-lucide="sparkles" class="h-4 w-4"></i>
-        </span>
-        <input
-          type="search"
-          id="header-ai-search"
-          name="{{ form.keywords_field_name }}"
-          value="{{ search.keywords | escape }}"
-          class="header-ai-search__field"
-          placeholder="{{ 'placeholders.search' | t }}"
-          autocomplete="off"
-          required
-        />
-        <span class="header-ai-search__icon header-ai-search__icon--submit end-2" aria-hidden="true">
-          <i data-lucide="search" class="h-4 w-4"></i>
-        </span>
-      {% endform_tag %}
+    <div class="flex">
+      <div class="hidden relative sm:flex items-center">
+        {% assign header_search_form_class = 'header-ai-search' %}
+        {% if search.keywords != blank %}
+          {% assign header_search_form_class = header_search_form_class | append: ' header-ai-search--expanded' %}
+        {% endif %}
+        {% form_tag 'search', class: header_search_form_class %}
+          <label for="header-ai-search" class="sr-only">{{ 'generic.search' | t }}</label>
+          <span class="header-ai-search__icon header-ai-search__icon--ai start-2.5" aria-hidden="true">
+            <i data-lucide="sparkles" class="h-4 w-4"></i>
+          </span>
+          <input
+            type="search"
+            id="header-ai-search"
+            name="{{ form.keywords_field_name }}"
+            value="{{ search.keywords | escape }}"
+            class="header-ai-search__field"
+            placeholder="{{ 'placeholders.search' | t }}"
+            autocomplete="off"
+            required
+          />
+          <span class="header-ai-search__icon header-ai-search__icon--submit end-2" aria-hidden="true">
+            <i data-lucide="search" class="h-4 w-4"></i>
+          </span>
+        {% endform_tag %}
+      </div>
+      <div class="navbar-end">
+        {% if current_user %}
+          <div class="ml-4 dropdown dropdown-end inline-block relative">
+            <div
+              tabindex="0"
+              role="button"
+              type="button"
+              class="avatar">
+              <div class="w-9 h-9 rounded-full">
+                {% if current_user.image %}
+                  <img class='h-full w-full' src="{{ current_user.image | asset_url }}">
+                {% endif %}
+                <span class="rounded-full h-full w-full bg-base-300/10 text-white flex items-center justify-center hover:bg-base-300/40 cursor-pointer">
+                  {{ current_user.name }}
+                </span>
+              </div>
+            </div>
+            <div tabindex="0" class="dropdown-content text-base mt-2 rounded overflow-hidden bg-base-100 shadow-xl">
+              <ul class="py-2 text-start whitespace-nowrap">
+                <li>
+                  <a
+                    class="flex items-center py-2 px-4 hover:text-primary"
+                    href="{{current_user.profile_url}}"
+                    data-discover="true">
+                    <span class="flex items-center gap-2">
+                      <span>{{ 'snippets.header.profile' | t }}</span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  {% form_tag 'sign_out' %}
+                    <button class='flex items-center gap-2 py-2 px-4 hover:text-primary cursor-pointer'>
+                      <span>{{ 'generic.signout' | t }}</span>
+                    </button>
+                  {% endform_tag %}
+                </li>
+              </ul>
+            </div>
+          </div>
+        {% else %}
+          {% form_tag 'sign_in_with_baklib' %}
+            <input
+              type="submit"
+              value="{{ 'generic.signin' | t }}"
+              class="ml-4 btn  btn-sm btn-outline"
+              data-disable-with=" ... ">
+          {% endform_tag %}
+        {% endif %}
+      </div>
     </div>
+
   </div>
 </header>
 

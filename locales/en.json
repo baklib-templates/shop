@@ -32,7 +32,9 @@
     "channel_pages": "Channel Navigation",
     "recent_pages": "Recent articles",
     "visits": "Visits",
-    "tags": "Tags"
+    "tags": "Tags",
+    "signin": "Sign In",
+    "signout": "Sign Out"
   },
   "placeholders": {
     "search": "Searching...",
@@ -50,6 +52,11 @@
   "feedback": {
     "title": "Submit Feedback",
     "input_placeholder": "Please input feedback"
+  },
+  "snippets": {
+    "header": {
+      "profile": "Profile"
+    }
   },
   "templates": {
     "search": {
