@@ -34,6 +34,10 @@
 @source "../../src/javascripts/**/*.js";
 
 @layer base {
+  [x-cloak] {
+    display: none !important;
+  }
+
   a {
     @apply decoration-primary decoration-2 underline-offset-4 hover:underline;
   }

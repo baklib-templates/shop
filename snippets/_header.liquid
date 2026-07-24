@@ -88,7 +88,7 @@ site.settings.header_menu 格式如下：
       <!-- Mobile navigation -->
       <nav
         id="mobile-nav"
-        class="fixed top-0 h-screen z-20 left-0 w-full max-w-sm -ml-16 overflow-scroll bg-slate-900 shadow-lg no-scrollbar"
+        class="[&[x-cloak]]:hidden fixed top-0 left-0 z-20 h-screen w-full max-w-sm overflow-scroll bg-slate-900 shadow-lg no-scrollbar"
         @click.outside="expanded = false"
         @keydown.escape.window="expanded = false"
         x-show="expanded"
@@ -100,7 +100,7 @@ site.settings.header_menu 格式如下：
         x-transition:leave-end="opacity-0"
         x-cloak
       >
-        <div class="py-6 pr-4 pl-20">
+        <div class="p-6">
           <!-- Logo -->
           <a class="inline-block mb-4" href="/" aria-label="{{ site.name }}">
             {% if site.settings.logo_url %}

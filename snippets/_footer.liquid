@@ -18,7 +18,7 @@
                     {%  assign second_menu_arr = second_menu | split: '[' %}
                     <li>
                         <a class="text-sm" href="{{ second_menu_arr[1] | default: '#'}}">
-                            <span class="whitespace-nowrap">{{ second_menu_arr[0] }}</span>
+                            <span class="break-words">{{ second_menu_arr[0] }}</span>
                         </a>
                     </li>
                   {% endfor %}
@@ -32,10 +32,10 @@
         {% endfor %}
     </div>
 
-    <div class="flex justify-between mt-2 pt-4 sm:mt-4 lg:mt-8">
-      <p class=""> {{ site.settings.company_info }}</p>
-      <p class=""> {{ site.settings.contact_info }}</p>
-      <div class="flex space-x-2">
+    <div class="mt-2 flex flex-col gap-3 pt-4 sm:mt-4 sm:flex-row sm:justify-between lg:mt-8">
+      <p class="min-w-0 break-words"> {{ site.settings.company_info }}</p>
+      <p class="min-w-0 break-words"> {{ site.settings.contact_info }}</p>
+      <div class="flex min-w-0 flex-wrap gap-2">
         {% if true %}
           {% comment %} 社交账号链接 {% endcomment %}
           {{ site.settings.friend_links }}
